@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulação do DOM</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" name="nome">
+    <button class="botao">Adicionar</button>
+  </div>
+  <script>
+    var buttonElement = document.querySelector("button.botao");
+    var inputElement = document.querySelector("input[name=nome]");
+    console.log(buttonElement);
+    console.log(inputElement);
+    buttonElement.onclick = function(){
+      var text = inputElement.value;
+      alert(text);
+    }
+    buttonElement.onmouseover = function(){
+      var text = inputElement.value;
+      console.log(text);
+    } 
+    inputElement.onkeypress = function(){
+      var text = inputElement.value;
+      console.log(text);
+    } 
+
+
+    var containerElement = document.querySelector("#app");
+    var imageElement = document.createElement("img");
+
+    imageElement.setAttribute("src","/images/hector.jpg");
+    imageElement.setAttribute("alt","hector");
+  
+  containerElement.appendChild(imageElement);
+
+
+  </script>
+</body>
+</html>

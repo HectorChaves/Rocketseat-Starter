@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio</title>
+</head>
+<body>
+  <div>
+    <button class="botao">Adicionar quadrado</button>
+  </div>
+
+  <div id="app" style="display: flex; align-items: center;">
+  </div>
+  
+
+  <script>
+    var buttonElement = document.querySelector(".botao");
+    var containerElement = document.querySelector("#app");
+
+    var aux = 0;
+    var squareElement = []
+    buttonElement.onclick = function(){
+    
+    squareElement[aux] = document.createElement("div");
+    squareElement[aux].setAttribute("id", `square${aux}`);
+    squareElement[aux].style.width = "100px";
+    squareElement[aux].style.height = "100px";
+    squareElement[aux].style.marginTop = "3px";
+    squareElement[aux].style.marginRight = "3px";
+    squareElement[aux].style.backgroundColor = `red`;
+    containerElement.appendChild(squareElement[aux]);
+      // alert("Quadrado adicionado")
+      aux += 1;
+    }
+
+    containerElement.onmouseover = function(){
+    squareElement.forEach(function (square, index){
+      squareElement[index].onmouseover = function(){
+        console.log(squareElement)
+        var newColor = getRandomColor();
+        squareElement[index].style.background = newColor;
+      }
+    })
+    }
+  
+
+  function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  
+
+
+  </script>
+</body>
+</html>

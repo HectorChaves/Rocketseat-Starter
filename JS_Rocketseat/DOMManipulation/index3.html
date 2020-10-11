@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio JS</title>
+</head>
+<body>
+  <div class="app">
+    <input type="text" name="nome">
+    <button id="botao">Adicionar</button>
+  </div>
+  
+  <script>
+    window.addEventListener("load", () =>{
+
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+    console.log(containerElement);
+
+      nomes.forEach(function (nome, index) {
+
+      var lines = document.createElement("ul");
+      containerElement.appendChild(lines);
+      var textElement = document.createTextNode(nome);
+      lines.appendChild(textElement);
+    })
+  })
+
+  var containerElement = document.querySelector("div.app");
+  var buttonElement = document.querySelector("button#botao");
+  var inputElement = document.querySelector("input[name=nome]");
+  
+  buttonElement.onclick = function(){
+    if (inputElement.value !== ""){
+    var newLine = document.createElement("ul");
+    var text = document.createTextNode(inputElement.value);
+    containerElement.appendChild(newLine);
+    newLine.appendChild(text);
+    inputElement.value = "";
+    }
+  }
+  </script>
+</body>
+</html>
